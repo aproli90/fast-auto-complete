@@ -167,4 +167,7 @@ with gr.Blocks(css=css, title="Create interesting sentences on the fly ✈") as 
 #     )
 
 # Launch the app
-demo.launch(debug=True)
+demo.launch(
+    debug=True,
+    server_name="0.0.0.0",
+)
