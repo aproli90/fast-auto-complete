@@ -40,6 +40,7 @@ A. I love to eat eggs for breakfast! 🧦🍳 Eggs are healthy as well as tasty 
 """
 
 ipAddress = ""
+lastResponse = ""
 
 
 def __nowInIST():
@@ -64,7 +65,7 @@ def autocomplete(text):
 
     if text != "":
         if text[-1] != " ":
-            # yield lastResponse
+            yield lastResponse
             return
 
         pprint(f"{text=}")
@@ -92,9 +93,9 @@ def autocomplete(text):
                 partialMessage = partialMessage + chunk.choices[0].delta.content
                 yield partialMessage
         pprint(f"{partialMessage=}")
-        # lastResponse = partialMessage
-    # else:
-    #     lastResponse = ""
+        lastResponse = partialMessage
+    else:
+        lastResponse = ""
 
 
 css = """
